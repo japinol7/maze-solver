@@ -1,4 +1,4 @@
-"""Module depth_first."""
+"""Module breadth_first."""
 __author__ = 'Joan A. Pinol  (japinol)'
 
 from mazesolver.container import Queue

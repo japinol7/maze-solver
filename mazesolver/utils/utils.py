@@ -1,6 +1,7 @@
 """Module utils."""
 __author__ = 'Joan A. Pinol  (japinol)'
 
+from math import sqrt
 from typing import NamedTuple
 
 
@@ -36,3 +37,20 @@ def binary_search(sequence, key):
         else:
             return True
     return False
+
+
+def calc_euclidean_distance(goal):
+    def distance(location):
+        x_delta = location.x - goal.x
+        y_delta = location.y - goal.y
+        return sqrt((x_delta * x_delta) + (y_delta * y_delta))
+    return distance
+
+
+def calc_manhattan_distance(goal):
+    def distance(location):
+        x_delta = abs(location.x - goal.x)
+        y_delta = abs(location.y - goal.y)
+        return x_delta + y_delta
+    return distance
+

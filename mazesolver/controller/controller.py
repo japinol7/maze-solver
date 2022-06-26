@@ -1,8 +1,16 @@
 """Module controller."""
 __author__ = 'Joan A. Pinol  (japinol)'
 
-from mazesolver.config.config import log, MAZE_ROWS_DEFAULT, MAZE_COLUMNS_DEFAULT
-from mazesolver.utils.utils import calc_path_from_location_node
+from mazesolver.config.config import (
+    log,
+    MAZE_ROWS_DEFAULT,
+    MAZE_COLUMNS_DEFAULT,
+    SOLVER_FUNCTIONS_WITH_DISTANCE_CALC,
+    )
+from mazesolver.utils.utils import (
+    calc_path_from_location_node,
+    calc_manhattan_distance,
+    )
 from mazesolver.model.maze import Maze
 
 
@@ -29,7 +37,12 @@ class MazeController:
         """Solves a given maze as a side effect.
         It returns the solution node if it finds one. Otherwise, None.
         """
-        solution_node = calc_solver(maze.start, maze.check_goal, maze.calc_destination_locations)
+        additional_args = {}
+        if calc_solver in SOLVER_FUNCTIONS_WITH_DISTANCE_CALC:
+            additional_args = {'calc_distance': calc_manhattan_distance(maze.goal)}
+
+        solution_node = calc_solver(maze.start, maze.check_goal, maze.calc_destination_locations,
+                                    **additional_args)
         if not solution_node:
             log.warning("No solutions found.")
             maze.save_with_no_solution()

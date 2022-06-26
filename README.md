@@ -27,7 +27,7 @@
       -nc,          --columns
 	                        the number of columns. Must be between 4 and 2000.
       -s,           --solver
-	                        solver algorithm. Available solvers: bfs, dfs
+	                        solver algorithm. Available solvers: astar, bfs, dfs
 	  -t,           --debugtraces
 	                        show debug back traces information when something goes wrong
 
@@ -43,20 +43,23 @@
 	debugtraces         False
 
 
-**More infor on solver algorithms.**
+**More info on solver algorithms.**
+
+* astar         A* search
+            [Wikipedia A* search](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
 * bfs         breadth-first search
-            [Wikipedia Breadth-first_search](https://en.wikipedia.org/wiki/Breadth-first_search)
+            [Wikipedia Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
 
 * dfs         depth-first search
-            [Wikipedia Depth-first_search](https://en.wikipedia.org/wiki/Depth-first_search)
+            [Wikipedia Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
 
 
 **Examples of usage**
 
 	If mazesolver has not been installed as an app:
 		$ python -m mazesolver
-		$ python -m mazesolver --create --name maze_02 --rows 50 --columns 40 --solver bfs
+		$ python -m mazesolver --create --name maze_02 --rows 50 --columns 40 --solver astar
 
 
 **To make The Maze Solver work**
