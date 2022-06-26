@@ -36,6 +36,7 @@ class MazeController:
             return None
         log.info(f"Solution found: {solution_node}")
         path = calc_path_from_location_node(solution_node)
+        log.info(f"Path length: {len(path) - 1}")
         maze.mark_path(path)
 
         if save_maze:

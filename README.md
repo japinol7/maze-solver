@@ -11,7 +11,7 @@
 
 ## Usage
 
-	mazesolver [-h] [-c] [-p] [-n NAME] [-nr ROWS] [-nc COLUMNS] [-t]
+	mazesolver [-h] [-c] [-p] [-n NAME] [-nr ROWS] [-nc COLUMNS] [-s SOLVER] [-t]
 
 	optional arguments:
 	  -h, --help            show this help message and exit
@@ -26,6 +26,8 @@
 	                        the number of rows. Must be between 4 and 2000.
       -nc,          --columns
 	                        the number of columns. Must be between 4 and 2000.
+      -s,           --solver
+	                        solver algorithm. Available solvers: dfs
 	  -t,           --debugtraces
 	                        show debug back traces information when something goes wrong
 
@@ -37,6 +39,7 @@
 	print 	            False
 	rows                32
 	columns             12
+	solver 	            dfs
 	debugtraces         False
 
 
@@ -44,7 +47,7 @@
 
 	If mazesolver has not been installed as an app:
 		$ python -m mazesolver
-		$ python -m mazesolver --create --name maze_02 --rows 50 --columns 40
+		$ python -m mazesolver --create --name maze_02 --rows 50 --columns 40 --solver dfs
 
 
 **To make The Maze Solver work**

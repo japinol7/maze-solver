@@ -12,6 +12,7 @@ from mazesolver.config.config import (
     CELL_SEPARATOR,
     FILE_INPUT_PATH,
     FILE_OUTPUT_PATH,
+    FILE_TXT_EXT,
     )
 from mazesolver.model.cell import Cell
 from mazesolver.utils.utils import Point
@@ -26,8 +27,7 @@ class Maze:
         self.goal = None
         self.sparseness = None
         self.grid = None
-
-        self.file_name = self.name + '.txt'
+        self.file_name = f'{self.name}.{FILE_TXT_EXT}'
 
     def create(self, rows=MAZE_ROWS_DEFAULT, columns=MAZE_COLUMNS_DEFAULT,
                start=None, goal=None, sparseness=MAZE_SPARSENESS_DEFAULT, ):
