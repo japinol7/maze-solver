@@ -45,6 +45,27 @@
 	debugtraces         False
 
 
+**Cells legend**
+
+	S           Start
+	G           Goal
+	W           Wall
+	·           Empty cell
+	*           Path cell found between S and G
+
+
+**Example of a maze and its solution.**
+
+    ·  ·  ·  ·  ·  ·  ·  S                  ·  ·  ·  ·  ·  ·  ·  S
+    ·  ·  ·  ·  ·  ·  ·  ·                  ·  ·  ·  ·  ·  ·  ·  *
+    ·  ·  ·  ·  ·  ·  ·  ·                  ·  ·  ·  ·  ·  ·  ·  *
+    ·  W  ·  ·  ·  ·  ·  ·                  ·  W  ·  ·  ·  ·  ·  *
+    ·  ·  ·  W  ·  ·  W  ·                  ·  ·  ·  W  ·  ·  W  *
+    W  ·  ·  W  ·  ·  ·  ·                  W  ·  ·  W  ·  *  *  *
+    ·  ·  W  ·  ·  ·  W  W                  ·  ·  W  ·  ·  *  W  W
+    ·  W  W  ·  ·  G  ·  ·                  ·  W  W  ·  ·  G  ·  ·
+
+
 **More info on solver algorithms.**
 
 * astar         A* search
