@@ -22,11 +22,11 @@
                             This name plus and extension will be the file to load or to create. 
       -p,           --print
 	                        print the maze created or load and the maze solution to the console.
-      -nr,           --rows
+      -nr,          --rows
 	                        the number of rows. Must be between 4 and 2000.
-      -nc,           --columns
+      -nc,          --columns
 	                        the number of columns. Must be between 4 and 2000.
-	  -t, 			--debugtraces
+	  -t,           --debugtraces
 	                        show debug back traces information when something goes wrong
 
 
@@ -35,9 +35,9 @@
 	create 	            False
 	name 	            maze_01
 	print 	            False
-	rows             	32
-	columns   		    12
-	debugtraces		    False
+	rows                32
+	columns             12
+	debugtraces         False
 
 
 **Examples of usage**
