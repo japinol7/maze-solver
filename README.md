@@ -1,6 +1,8 @@
 ## Maze Solver
 
 	Creates and solves mazes of NxN cells with a start and a goal.
+    The start cell must be located in the first row of the maze.
+    The goal cell must be located in the last row of the maze.
 
 	version: 0.0.3
 	author: Joan A. Pinol
@@ -57,9 +59,8 @@
 
 **Examples of usage**
 
-	If mazesolver has not been installed as an app:
-		$ python -m mazesolver
-		$ python -m mazesolver --create --name maze_02 --rows 50 --columns 40 --solver astar
+    $ python -m mazesolver
+    $ python -m mazesolver --create --name maze_02 --rows 50 --columns 40 --solver astar
 
 
 **To make The Maze Solver work**
