@@ -1,13 +1,13 @@
 """Module depth_first."""
 __author__ = 'Joan A. Pinol  (japinol)'
 
-from mazesolver.container import Stack
+from mazesolver.container import Queue
 from mazesolver.model.node import Node
 
 
-def calc_dfs(start_location, check_goal, calc_destination_locations):
-    """Implements depth-first search algorithm for traversing a graph or tree data structure."""
-    next_node = Stack()
+def calc_bfs(start_location, check_goal, calc_destination_locations):
+    """Implements breadth-first search algorithm for traversing a graph or tree data structure."""
+    next_node = Queue()
     next_node.push(Node(start_location, None))
     explored = {start_location}
 

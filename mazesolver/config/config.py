@@ -2,7 +2,7 @@ from collections import namedtuple
 import logging
 import os
 
-from mazesolver.solver import calc_dfs
+from mazesolver.solver import calc_dfs, calc_bfs
 from mazesolver.version import version
 
 APP_NAME = 'mazesolver'
@@ -18,10 +18,11 @@ CELL_SEPARATOR = '  '
 
 MAZE_NAME_DEFAULT = 'maze_01'
 
-MAZE_SOLVERS = ['dfs']
-MAZE_SOLVER_DEFAULT = 'dfs'
+MAZE_SOLVERS = ['bfs', 'dfs']
+MAZE_SOLVER_DEFAULT = 'bfs'
 MazeSolverMapping = namedtuple('maze_solver_mapping', ['name', 'method'])
 MAZE_SOLVER_MAPPING = {
+    'bfs': MazeSolverMapping('bfs', calc_bfs),
     'dfs': MazeSolverMapping('dfs', calc_dfs),
     }
 
