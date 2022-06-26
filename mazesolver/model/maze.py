@@ -4,7 +4,7 @@ __author__ = 'Joan A. Pinol  (japinol)'
 import os
 import random
 
-from config.config import (
+from mazesolver.config.config import (
     MAZE_ROWS_DEFAULT,
     MAZE_COLUMNS_DEFAULT,
     MAZE_SPARSENESS_ROWS_COLS_BASE,
@@ -13,8 +13,8 @@ from config.config import (
     FILE_INPUT_PATH,
     FILE_OUTPUT_PATH,
     )
-from model.cell import Cell
-from utils.utils import Point
+from mazesolver.model.cell import Cell
+from mazesolver.utils.utils import Point
 
 
 class Maze:

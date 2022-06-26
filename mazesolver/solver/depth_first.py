@@ -1,8 +1,8 @@
 """Module depth_first."""
 __author__ = 'Joan A. Pinol  (japinol)'
 
-from container import Stack
-from model.node import Node
+from mazesolver.container import Stack
+from mazesolver.model.node import Node
 
 
 def calc_dfs(start_location, check_goal, calc_destination_locations):

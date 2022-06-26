@@ -1,9 +1,9 @@
 """Module controller."""
 __author__ = 'Joan A. Pinol  (japinol)'
 
-from config.config import log, MAZE_ROWS_DEFAULT, MAZE_COLUMNS_DEFAULT
-from utils.utils import calc_path_from_location_node
-from model.maze import Maze
+from mazesolver.config.config import log, MAZE_ROWS_DEFAULT, MAZE_COLUMNS_DEFAULT
+from mazesolver.utils.utils import calc_path_from_location_node
+from mazesolver.model.maze import Maze
 
 
 class MazeController:

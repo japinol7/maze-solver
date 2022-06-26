@@ -4,7 +4,7 @@ __author__ = 'Joan A. Pinol  (japinol)'
 from functools import wraps
 import time
 
-from config.config import log
+from mazesolver.config.config import log
 
 
 def time_it(func):
