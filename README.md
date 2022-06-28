@@ -3,6 +3,9 @@
 	Creates and solves mazes of NxN cells with a start and a goal.
     The start cell must be located in the first row of the maze.
     The goal cell must be located in the last row of the maze.
+    For a graphic maze:
+        * the first row must have only one empty cell, which will be the start cell. 
+        * the last row must have only one empty cell, which will be the goal cell. 
 
 	version: 0.0.4
 	author: Joan A. Pinol
@@ -13,15 +16,20 @@
 
 ## Usage
 
-	mazesolver [-h] [-c] [-p] [-n NAME] [-nr ROWS] [-nc COLUMNS] [-s SOLVER] [-t]
+	mazesolver [-h] [-c] [-i] [-n NAME] [-nr ROWS] [-nc COLUMNS] [-p] [-s SOLVER] [-t]
 
 	optional arguments:
 	  -h, --help            show this help message and exit
       -c,           --create
 	                        create a new maze instead of loading one.
+      -i,           --image
+	                        load and save a graphic maze instead of a text one.
       -n,           --name
 	                        the maze's name (without extension). Ex: maze_01 
-                            This name plus and extension will be the file to load or to create. 
+                            This name plus and extension will be the file to load or to create.
+                            All files will be loaded from the input folder and saved into the output folder
+                            All text mazes must have this extension: .txt
+                            All graphic mazes must have this extension: .png
       -p,           --print
 	                        print the maze created or load and the maze solution to the console.
       -nr,          --rows
@@ -56,21 +64,21 @@
 
 **Example of a maze and its solution.**
 
-    W  W  ·  ·  W  S  W  W  W  W  W  W  W  W  W                  W  W  ·  ·  W  S  W  W  W  W  W  W  W  W  W
-    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W                  W  ·  *  *  *  *  ·  ·  ·  ·  ·  ·  ·  ·  W
-    W  W  ·  W  W  W  W  W  W  W  W  W  W  W  W                  W  W  *  W  W  W  W  W  W  W  W  W  W  W  W
-    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W  ·  W                  W  ·  *  *  *  *  *  *  *  *  *  *  W  ·  W
-    W  W  W  W  W  W  W  W  W  W  W  ·  ·  ·  W                  W  W  W  W  W  W  W  W  W  W  W  *  ·  ·  W
-    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W  ·  W                  W  ·  ·  *  *  *  *  *  *  *  *  *  W  ·  W
-    W  ·  W  ·  W  W  W  W  W  W  W  W  W  ·  W                  W  ·  W  *  W  W  W  W  W  W  W  W  W  ·  W
-    W  ·  W  ·  ·  ·  ·  ·  W  ·  ·  ·  ·  ·  W                  W  ·  W  *  *  *  *  *  W  ·  ·  ·  ·  ·  W
-    W  W  W  ·  W  W  W  ·  W  W  W  ·  W  ·  W                  W  W  W  ·  W  W  W  *  W  W  W  ·  W  ·  W
-    W  ·  ·  ·  W  ·  ·  ·  W  ·  W  ·  W  ·  W                  W  ·  ·  ·  W  ·  ·  *  W  ·  W  ·  W  ·  W
-    W  ·  W  ·  W  ·  W  ·  W  ·  W  ·  W  ·  W                  W  ·  W  ·  W  ·  W  *  W  ·  W  ·  W  ·  W
-    W  ·  W  ·  W  ·  W  ·  W  ·  W  W  W  W  W                  W  ·  W  ·  W  ·  W  *  W  ·  W  W  W  W  W
-    W  ·  W  ·  ·  ·  W  ·  W  ·  W  W  ·  ·  W                  W  ·  W  ·  ·  ·  W  *  W  ·  W  W  ·  ·  W
-    W  ·  ·  ·  W  ·  W  ·  ·  ·  ·  ·  ·  ·  W                  W  ·  ·  ·  W  ·  W  *  *  *  *  *  *  ·  W
-    W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W                  W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W
+    W  W  ·  ·  W  S  W  W  W  W  W  W  W  W  W                 W  W  ·  ·  W  S  W  W  W  W  W  W  W  W  W
+    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W                 W  ·  *  *  *  *  ·  ·  ·  ·  ·  ·  ·  ·  W
+    W  W  ·  W  W  W  W  W  W  W  W  W  W  W  W                 W  W  *  W  W  W  W  W  W  W  W  W  W  W  W
+    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W  ·  W                 W  ·  *  *  *  *  *  *  *  *  *  *  W  ·  W
+    W  W  W  W  W  W  W  W  W  W  W  ·  ·  ·  W                 W  W  W  W  W  W  W  W  W  W  W  *  ·  ·  W
+    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W  ·  W                 W  ·  ·  *  *  *  *  *  *  *  *  *  W  ·  W
+    W  ·  W  ·  W  W  W  W  W  W  W  W  W  ·  W                 W  ·  W  *  W  W  W  W  W  W  W  W  W  ·  W
+    W  ·  W  ·  ·  ·  ·  ·  W  ·  ·  ·  ·  ·  W                 W  ·  W  *  *  *  *  *  W  ·  ·  ·  ·  ·  W
+    W  W  W  ·  W  W  W  ·  W  W  W  ·  W  ·  W                 W  W  W  ·  W  W  W  *  W  W  W  ·  W  ·  W
+    W  ·  ·  ·  W  ·  ·  ·  W  ·  W  ·  W  ·  W                 W  ·  ·  ·  W  ·  ·  *  W  ·  W  ·  W  ·  W
+    W  ·  W  ·  W  ·  W  ·  W  ·  W  ·  W  ·  W                 W  ·  W  ·  W  ·  W  *  W  ·  W  ·  W  ·  W
+    W  ·  W  ·  W  ·  W  ·  W  ·  W  W  W  W  W                 W  ·  W  ·  W  ·  W  *  W  ·  W  W  W  W  W
+    W  ·  W  ·  ·  ·  W  ·  W  ·  W  W  ·  ·  W                 W  ·  W  ·  ·  ·  W  *  W  ·  W  W  ·  ·  W
+    W  ·  ·  ·  W  ·  W  ·  ·  ·  ·  ·  ·  ·  W                 W  ·  ·  ·  W  ·  W  *  *  *  *  *  *  ·  W
+    W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W                 W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W
 
 
 **Mazes in the input folder.**
@@ -98,6 +106,7 @@ Kinds of mazes:
 **Examples of usage**
 
     $ python -m mazesolver
+    $ python -m mazesolver --image --name maze_braid_31 --solver bfs
     $ python -m mazesolver --create --name maze_02 --rows 50 --columns 40 --solver astar
 
 

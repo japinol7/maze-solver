@@ -55,7 +55,6 @@ class MazeController:
         log.info(f"Solution found: {solution_node}")
         path = calc_path_from_location_node(solution_node)
         log.info(f"Path length: {len(path) - 1}")
-        maze.mark_path(path)
         return solution_node, path
 
     @staticmethod
@@ -65,4 +64,5 @@ class MazeController:
             maze.save_image(path)
         else:
             log.info(f"Save text maze: {maze.file_name}")
+            maze.mark_path(path)
             maze.save()
