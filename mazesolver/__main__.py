@@ -23,14 +23,16 @@ def main():
                             prog='mazesolver')
     parser.add_argument('-c', '--create', default=False, action='store_true',
                         help="create a new maze instead of loading one.")
-    parser.add_argument('-p', '--print', default=False, action='store_true',
-                        help="print the maze created or load and the maze solution to the console.")
+    parser.add_argument('-i', '--image', default=False, action='store_true',
+                        help=f"the maze input is a png image instead of a text file.")
     parser.add_argument('-n', '--name', default=None,
                         help="the maze's name.")
     parser.add_argument('-nr', '--rows', default=None,
                         help=f"the number of rows. Must be between {MAZE_ROWS_COLS_MIN} and {MAZE_ROWS_COLS_MAX}.")
     parser.add_argument('-nc', '--columns', default=None,
                         help=f"the number of columns. Must be between {MAZE_ROWS_COLS_MIN} and {MAZE_ROWS_COLS_MAX}.")
+    parser.add_argument('-p', '--print', default=False, action='store_true',
+                        help="print the maze created or load and the maze solution to the console.")
     parser.add_argument('-s', '--solver', default=None,
                         help=f"solver algorithm. Available solvers: {', '.join(MAZE_SOLVERS)}")
     parser.add_argument('-t', '--debugtraces', default=False, action='store_true',
@@ -40,6 +42,7 @@ def main():
     try:
         maze_name = args.name or MAZE_NAME_DEFAULT
         load_maze = not args.create
+        is_image = args.image
         print_maze = args.print
         rows = args.rows and int(args.rows) or None
         columns = args.columns and int(args.columns) or None
@@ -48,14 +51,14 @@ def main():
             columns = columns or MAZE_COLUMNS_DEFAULT
         solver = args.solver
 
-        input_validator = InputValidator(maze_name, load_maze, rows, columns, solver)
+        input_validator = InputValidator(maze_name, load_maze, rows, columns, solver, is_image)
         validate_input_errors = input_validator.validate_input()
         if validate_input_errors:
             for input_error in validate_input_errors:
                 log.error(input_error)
             return
 
-        mazes(maze_name, load_maze, rows, columns, print_maze, solver)
+        mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image)
     except Exception as e:
         if args.debugtraces:
             traceback.print_tb(e.__traceback__)

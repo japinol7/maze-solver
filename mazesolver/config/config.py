@@ -2,6 +2,7 @@ from collections import namedtuple
 import logging
 import os
 
+from mazesolver.model.cell import Cell
 from mazesolver.solver import calc_a_star, calc_bfs, calc_dfs
 from mazesolver.version import version
 
@@ -30,9 +31,15 @@ MAZE_SOLVER_MAPPING = {
 
 SOLVER_FUNCTIONS_WITH_DISTANCE_CALC = [calc_a_star]
 
+CELL_IMAGE_MAPPING = {
+    1: Cell.EMPTY.value,
+    0: Cell.WALL.value,
+    }
+
 FILE_INPUT_PATH = os.path.join('files', 'input')
 FILE_OUTPUT_PATH = os.path.join('files', 'output')
 FILE_TXT_EXT = 'txt'
+FILE_IMAGE_EXT = 'png'
 
 LOGGER_FORMAT = '%(asctime)s %(levelname)s: %(message)s'
 logging.basicConfig(format=LOGGER_FORMAT)

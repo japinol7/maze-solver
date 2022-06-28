@@ -56,25 +56,42 @@
 
 **Example of a maze and its solution.**
 
-    ·  ·  ·  ·  ·  ·  ·  S                  ·  ·  ·  ·  ·  ·  ·  S
-    ·  ·  ·  ·  ·  ·  ·  ·                  ·  ·  ·  ·  ·  ·  ·  *
-    ·  ·  ·  ·  ·  ·  ·  ·                  ·  ·  ·  ·  ·  ·  ·  *
-    ·  W  ·  ·  ·  ·  ·  ·                  ·  W  ·  ·  ·  ·  ·  *
-    ·  ·  ·  W  ·  ·  W  ·                  ·  ·  ·  W  ·  ·  W  *
-    W  ·  ·  W  ·  ·  ·  ·                  W  ·  ·  W  ·  *  *  *
-    ·  ·  W  ·  ·  ·  W  W                  ·  ·  W  ·  ·  *  W  W
-    ·  W  W  ·  ·  G  ·  ·                  ·  W  W  ·  ·  G  ·  ·
+    W  W  ·  ·  W  S  W  W  W  W  W  W  W  W  W                  W  W  ·  ·  W  S  W  W  W  W  W  W  W  W  W
+    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W                  W  ·  *  *  *  *  ·  ·  ·  ·  ·  ·  ·  ·  W
+    W  W  ·  W  W  W  W  W  W  W  W  W  W  W  W                  W  W  *  W  W  W  W  W  W  W  W  W  W  W  W
+    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W  ·  W                  W  ·  *  *  *  *  *  *  *  *  *  *  W  ·  W
+    W  W  W  W  W  W  W  W  W  W  W  ·  ·  ·  W                  W  W  W  W  W  W  W  W  W  W  W  *  ·  ·  W
+    W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W  ·  W                  W  ·  ·  *  *  *  *  *  *  *  *  *  W  ·  W
+    W  ·  W  ·  W  W  W  W  W  W  W  W  W  ·  W                  W  ·  W  *  W  W  W  W  W  W  W  W  W  ·  W
+    W  ·  W  ·  ·  ·  ·  ·  W  ·  ·  ·  ·  ·  W                  W  ·  W  *  *  *  *  *  W  ·  ·  ·  ·  ·  W
+    W  W  W  ·  W  W  W  ·  W  W  W  ·  W  ·  W                  W  W  W  ·  W  W  W  *  W  W  W  ·  W  ·  W
+    W  ·  ·  ·  W  ·  ·  ·  W  ·  W  ·  W  ·  W                  W  ·  ·  ·  W  ·  ·  *  W  ·  W  ·  W  ·  W
+    W  ·  W  ·  W  ·  W  ·  W  ·  W  ·  W  ·  W                  W  ·  W  ·  W  ·  W  *  W  ·  W  ·  W  ·  W
+    W  ·  W  ·  W  ·  W  ·  W  ·  W  W  W  W  W                  W  ·  W  ·  W  ·  W  *  W  ·  W  W  W  W  W
+    W  ·  W  ·  ·  ·  W  ·  W  ·  W  W  ·  ·  W                  W  ·  W  ·  ·  ·  W  *  W  ·  W  W  ·  ·  W
+    W  ·  ·  ·  W  ·  W  ·  ·  ·  ·  ·  ·  ·  W                  W  ·  ·  ·  W  ·  W  *  *  *  *  *  *  ·  W
+    W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W                  W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W
+
+
+**Mazes in the input folder.**
+
+The example mazes in the input folder were generated either by hand, or using 
+the software [Daedalus](http://www.astrolog.org/labyrnth/daedalus.htm)
+
+Kinds of mazes:
+* Perfect: Perfect mazes have only one solution.
+* Braid:   Braid mazes have multiple solutions.
 
 
 **More info on solver algorithms.**
 
-* astar         A* search
+* astar >> A* search >>
             [Wikipedia A* search](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
-* bfs         breadth-first search
+* bfs >>    breadth-first search >>
             [Wikipedia Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
 
-* dfs         depth-first search
+* dfs >>    depth-first search >>
             [Wikipedia Depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)
 
 

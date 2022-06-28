@@ -8,7 +8,7 @@ from mazesolver.config.config import (
 
 class InputValidator:
 
-    def __init__(self, maze_name, load_maze, rows, columns, solver):
+    def __init__(self, maze_name, load_maze, rows, columns, solver, is_image):
         self.maze_name = maze_name
         self.load_maze = load_maze
         self.rows = rows
