@@ -4,15 +4,19 @@ __author__ = 'Joan A. Pinol  (japinol)'
 import os
 import random
 
+from PIL import Image
+
 from mazesolver.config.config import (
     MAZE_ROWS_DEFAULT,
     MAZE_COLUMNS_DEFAULT,
     MAZE_SPARSENESS_ROWS_COLS_BASE,
     MAZE_SPARSENESS_DEFAULT,
     CELL_SEPARATOR,
+    CELL_IMAGE_MAPPING,
     FILE_INPUT_PATH,
     FILE_OUTPUT_PATH,
     FILE_TXT_EXT,
+    FILE_IMAGE_EXT,
     )
 from mazesolver.model.cell import Cell
 from mazesolver.utils.utils import Point
@@ -28,6 +32,8 @@ class Maze:
         self.sparseness = None
         self.grid = None
         self.file_name = f'{self.name}.{FILE_TXT_EXT}'
+        self.file_image_name = f'{self.name}.{FILE_IMAGE_EXT}'
+        self.image = None
 
     def create(self, rows=MAZE_ROWS_DEFAULT, columns=MAZE_COLUMNS_DEFAULT,
                start=None, goal=None, sparseness=MAZE_SPARSENESS_DEFAULT, ):
@@ -62,7 +68,7 @@ class Maze:
                     self.grid[i][j] = Cell.WALL.value
 
     def load(self):
-        file_path_name = os.path.join(FILE_INPUT_PATH, self.name + '.txt')
+        file_path_name = os.path.join(FILE_INPUT_PATH, self.file_name)
         with open(file_path_name, 'r', encoding='utf8') as fin:
             rows = fin.readlines()
 
@@ -75,15 +81,42 @@ class Maze:
         self.start = Point(self.grid[0].index(Cell.START.value), 0)
         self.goal = Point(self.grid[-1].index(Cell.GOAL.value), len(self.grid) - 1)
 
+    def load_image(self):
+        file_path_name = os.path.join(FILE_INPUT_PATH, self.file_image_name)
+        self.image = Image.open(file_path_name)
+        self.columns, self.rows = self.image.size
+        data = list(self.image.getdata(0))
+
+        self.grid = []
+        for y in range(self.rows):
+            row_offset = y * self.columns
+            self.grid.append([CELL_IMAGE_MAPPING[data[row_offset + x]] for x in range(self.columns)])
+
+        self.start = Point(self.grid[0].index(Cell.EMPTY.value), 0)
+        self.goal = Point(self.grid[-1].index(Cell.EMPTY.value), len(self.grid) - 1)
+
     def save(self, save_as_input=False):
         file_path = FILE_INPUT_PATH if save_as_input else FILE_OUTPUT_PATH
-        file_path_name = os.path.join(file_path, self.name + '.txt')
+        file_path_name = os.path.join(file_path, self.file_name)
         with open(file_path_name, 'w', encoding='utf8') as fout:
             fout.write(str(self))
 
+    def save_image(self, path=None):
+        file_path = FILE_OUTPUT_PATH
+        file_path_name = os.path.join(file_path, self.file_image_name)
+        if path:
+            self.image = self.image.convert('RGB')
+            im_pixels = self.image.load()
+            path_len = len(path)
+            for i, location in enumerate(path):
+                blue_green = int(i / path_len * 255)
+                rgb_color = (0, blue_green, 255 - blue_green)
+                im_pixels[location.x, location.y] = rgb_color
+        self.image.save(file_path_name, format='PNG')
+
     def save_with_no_solution(self, save_as_input=False):
         file_path = FILE_INPUT_PATH if save_as_input else FILE_OUTPUT_PATH
-        file_path_name = os.path.join(file_path, self.name + '.txt')
+        file_path_name = os.path.join(file_path, self.file_name)
         with open(file_path_name, 'w', encoding='utf8') as fout:
             fout.write("No solutions found. Original maze:\n")
             fout.write(str(self))

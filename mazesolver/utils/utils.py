@@ -15,6 +15,7 @@ def calc_path_from_location_node(node):
     while node.parent is not None:
         node = node.parent
         path += [node.state]
+    path.reverse()
     return path
 
 
