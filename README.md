@@ -4,7 +4,7 @@
     The start cell must be located in the first row of the maze.
     The goal cell must be located in the last row of the maze.
 
-	version: 0.0.3
+	version: 0.0.4
 	author: Joan A. Pinol
 	author_nickname: japinol
 	author_gitHub: japinol7
