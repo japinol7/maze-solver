@@ -10,7 +10,7 @@ setup(
     url='https://github.com/japinol7/maze-solver',
     packages=['mazesolver'],
     python_requires='>=3.9',
-    install_requires=[],
+    install_requires=['Pillow'],
     entry_points={
         'console_scripts': [
             'mazesolver=mazesolver.__main__:main',
