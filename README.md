@@ -106,4 +106,5 @@ Kinds of mazes:
 	Do this:
 	    1. Clone this repository in your local system.
 	    2. Go to its folder in your system.
-	    3. $ python -m mazesolver
+	    3. $ pip install -r requirements.txt
+	    4. $ python -m mazesolver
