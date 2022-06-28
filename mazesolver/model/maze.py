@@ -34,6 +34,7 @@ class Maze:
         self.file_name = f'{self.name}.{FILE_TXT_EXT}'
         self.file_image_name = f'{self.name}.{FILE_IMAGE_EXT}'
         self.image = None
+        self.is_path_marked = False
 
     def create(self, rows=MAZE_ROWS_DEFAULT, columns=MAZE_COLUMNS_DEFAULT,
                start=None, goal=None, sparseness=MAZE_SPARSENESS_DEFAULT, ):
@@ -143,12 +144,14 @@ class Maze:
             self.grid[location.y][location.x] = Cell.PATH.value
         self.grid[self.start.y][self.start.x] = Cell.START.value
         self.grid[self.goal.y][self.goal.x] = Cell.GOAL.value
+        self.is_path_marked = True
 
     def clean_path(self, path):
         for location in path:
             self.grid[location.y][location.x] = Cell.EMPTY.value
         self.grid[self.start.y][self.start.x] = Cell.START.value
         self.grid[self.goal.y][self.goal.x] = Cell.GOAL.value
+        self.is_path_marked = False
 
     def __str__(self):
         res = ''

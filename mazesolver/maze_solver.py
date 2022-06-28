@@ -25,7 +25,9 @@ def mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image):
     res_node, path = time_it(controller.solve_maze, maze=maze, save_maze=True, is_image=is_image,
                              calc_solver=MAZE_SOLVER_MAPPING[solver].method)
 
-    maze = time_it(controller.save_maze, maze=maze, path=path, is_image=is_image)
+    time_it(controller.save_maze, maze=maze, path=path, is_image=is_image)
     if res_node and print_maze:
+        if not maze.is_path_marked:
+            maze.mark_path(path)
         print(maze)
     log.info(LOG_END_APP_MSG)
