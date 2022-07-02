@@ -38,6 +38,8 @@
 	                        the number of columns. Must be between 4 and 2000.
       -s,           --solver
 	                        solver algorithm. Available solvers: astar, bfs, dfs
+      -st,          --savetext
+	                        save maze as text in addition to save it as image even if asked for an image maze
 	  -t,           --debugtraces
 	                        show debug back traces information when something goes wrong
 
@@ -45,12 +47,14 @@
 **Default optional arguments**
 
 	create 	            False
+	columns             12
+	debugtraces         False
+	image 	            False
 	name 	            maze_01
 	print 	            False
 	rows                32
-	columns             12
+	savetext 	        False
 	solver 	            bfs
-	debugtraces         False
 
 
 **Cells legend**
@@ -62,7 +66,7 @@
 	*           Path cell found between S and G
 
 
-**Example of a maze and its solution.**
+**Example of a text maze and its solution.**
 
     W  W  ·  ·  W  S  W  W  W  W  W  W  W  W  W                 W  W  ·  ·  W  S  W  W  W  W  W  W  W  W  W
     W  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  ·  W                 W  ·  *  *  *  *  ·  ·  ·  ·  ·  ·  ·  ·  W
@@ -79,6 +83,12 @@
     W  ·  W  ·  ·  ·  W  ·  W  ·  W  W  ·  ·  W                 W  ·  W  ·  ·  ·  W  *  W  ·  W  W  ·  ·  W
     W  ·  ·  ·  W  ·  W  ·  ·  ·  ·  ·  ·  ·  W                 W  ·  ·  ·  W  ·  W  *  *  *  *  *  *  ·  W
     W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W                 W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W
+
+
+**Example of an image maze and its solution.**
+
+<img src="screenshots/maze_perfect_31_input.png" width="31"> 
+<img src="screenshots/maze_perfect_31_output.png" width="31"> <br />
 
 
 **Mazes in the input folder.**

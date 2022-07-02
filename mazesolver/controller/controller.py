@@ -37,7 +37,7 @@ class MazeController:
         return maze
 
     @staticmethod
-    def solve_maze(maze, calc_solver, save_maze=True, is_image=False):
+    def solve_maze(maze, calc_solver):
         """Solves a given maze as a side effect.
         It returns the solution node if it finds one. Otherwise, None.
         """
@@ -58,11 +58,11 @@ class MazeController:
         return solution_node, path
 
     @staticmethod
-    def save_maze(maze, path, is_image=False):
+    def save_maze(maze, path, is_image=False, save_also_as_text=False):
         if is_image:
             log.info(f"Save image maze: {maze.file_image_name}")
             maze.save_image(path)
-        else:
+        if not is_image or save_also_as_text:
             log.info(f"Save text maze: {maze.file_name}")
             maze.mark_path(path)
             maze.save()

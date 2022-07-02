@@ -13,7 +13,7 @@ from mazesolver.config.config import log
 from mazesolver.controller.controller import MazeController
 
 
-def mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image):
+def mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text):
     log.info(LOG_START_APP_MSG)
     controller = MazeController()
     maze = time_it(controller.create_maze, name=maze_name, load_maze=load_maze, is_image=is_image,
@@ -22,10 +22,9 @@ def mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image):
 
     solver = solver or MAZE_SOLVER_DEFAULT
     log.info(f"Solver algorithm: {solver}")
-    res_node, path = time_it(controller.solve_maze, maze=maze, save_maze=True, is_image=is_image,
-                             calc_solver=MAZE_SOLVER_MAPPING[solver].method)
+    res_node, path = time_it(controller.solve_maze, maze=maze, calc_solver=MAZE_SOLVER_MAPPING[solver].method)
 
-    time_it(controller.save_maze, maze=maze, path=path, is_image=is_image)
+    time_it(controller.save_maze, maze=maze, path=path, is_image=is_image, save_also_as_text=save_also_as_text)
     if res_node and print_maze:
         if not maze.is_path_marked:
             maze.mark_path(path)
