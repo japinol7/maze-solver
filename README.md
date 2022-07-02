@@ -87,8 +87,8 @@
 
 **Example of an image maze and its solution.**
 
-<img src="screenshots/maze_perfect_31_input.png" width="31"> 
-<img src="screenshots/maze_perfect_31_output.png" width="31"> <br />
+<img src="screenshots/maze_perfect_31_input.png" width="610">       
+<img src="screenshots/maze_perfect_31_output.png" width="610"> <br />
 
 
 **Mazes in the input folder.**
