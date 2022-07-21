@@ -51,7 +51,7 @@
 	debugtraces         False
 	image 	            False
 	name 	            maze_01 for a text maze
-	name 	            maze_braid_25 for an image maze
+	name 	            maze_braid_51 for an image maze
 	print 	            False
 	rows                32
 	savetext 	        False
