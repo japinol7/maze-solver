@@ -50,7 +50,8 @@
 	columns             12
 	debugtraces         False
 	image 	            False
-	name 	            maze_01
+	name 	            maze_01 for a text maze
+	name 	            maze_braid_25 for an image maze
 	print 	            False
 	rows                32
 	savetext 	        False
@@ -64,6 +65,12 @@
 	W           Wall
 	·           Empty cell
 	*           Path cell found between S and G
+
+
+**Example of an image maze and its solution.**
+
+<img src="screenshots/maze_perfect_31_input.png" width="300">     
+<img src="screenshots/maze_perfect_31_output.png" width="300"> <br />
 
 
 **Example of a text maze and its solution.**
@@ -83,12 +90,6 @@
     W  ·  W  ·  ·  ·  W  ·  W  ·  W  W  ·  ·  W                 W  ·  W  ·  ·  ·  W  *  W  ·  W  W  ·  ·  W
     W  ·  ·  ·  W  ·  W  ·  ·  ·  ·  ·  ·  ·  W                 W  ·  ·  ·  W  ·  W  *  *  *  *  *  *  ·  W
     W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W                 W  ·  W  W  W  W  W  W  W  W  W  W  G  W  W
-
-
-**Example of an image maze and its solution.**
-
-<img src="screenshots/maze_perfect_31_input.png" width="300">     
-<img src="screenshots/maze_perfect_31_output.png" width="300"> <br />
 
 
 **Mazes in the input folder.**
@@ -116,6 +117,7 @@ Kinds of mazes:
 **Examples of usage**
 
     $ python -m mazesolver
+    $ python -m mazesolver -i
     $ python -m mazesolver --image --name maze_braid_31 --solver bfs
     $ python -m mazesolver --create --name maze_02 --rows 50 --columns 40 --solver astar
 

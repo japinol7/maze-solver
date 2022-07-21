@@ -1,11 +1,15 @@
 """Module controller."""
 __author__ = 'Joan A. Pinol  (japinol)'
 
+import os
+
 from mazesolver.config.config import (
     log,
     MAZE_ROWS_DEFAULT,
     MAZE_COLUMNS_DEFAULT,
     SOLVER_FUNCTIONS_WITH_DISTANCE_CALC,
+    FILE_TXT_EXT,
+    FILE_IMAGE_EXT,
     )
 from mazesolver.utils.utils import (
     calc_path_from_location_node,
@@ -21,15 +25,16 @@ class MazeController:
     def create_maze(name, rows=MAZE_ROWS_DEFAULT, columns=MAZE_COLUMNS_DEFAULT, load_maze=False, is_image=False):
         """Creates and returns a maze either by loading an existing one or generating a new one randomly."""
         maze = Maze(name)
+        file_name = f"{os.path.join(name + '.' + (is_image and FILE_IMAGE_EXT or FILE_TXT_EXT))}"
         if load_maze:
-            log.info(f"Load {is_image and 'image' or 'text'} maze: {name}")
+            log.info(f"Load {is_image and 'image' or 'text'} maze: {file_name}")
             if is_image:
                 maze.load_image()
             else:
                 maze.load()
             log.info(f"Maze size: {maze.rows} * {maze.columns}")
         else:
-            log.info(f"Create Maze: {name}")
+            log.info(f"Create Maze: {file_name}")
             log.info(f"Maze size: {rows} * {columns}")
             maze.create(rows, columns)
             maze.save(save_as_input=True)
