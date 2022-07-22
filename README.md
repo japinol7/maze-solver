@@ -5,7 +5,13 @@
     The goal cell must be located in the last row of the maze.
     For a graphic maze:
         * the first row must have only one empty cell, which will be the start cell. 
-        * the last row must have only one empty cell, which will be the goal cell. 
+        * the last row must have only one empty cell, which will be the goal cell.
+    The input maze must be found in the following directory inside this app:
+        files/input
+    The output maze will be created in the following directory inside this app:
+        files/output
+    Text mazes must have the following extension: .txt
+    Image mazes must have the following extension: .png
 
 	version: 0.0.4
 	author: Joan A. Pinol
