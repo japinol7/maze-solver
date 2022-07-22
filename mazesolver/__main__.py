@@ -11,7 +11,6 @@ from mazesolver.config.config import (
     MAZE_COLUMNS_DEFAULT,
     MAZE_SOLVERS,
     MAZE_NAME_DEFAULT,
-    MAZE_IMAGE_NAME_DEFAULT,
     )
 from mazesolver.config.config import log
 from mazesolver.validator.validator import InputValidator
@@ -45,7 +44,7 @@ def main():
     try:
         load_maze = not args.create
         is_image = args.image
-        maze_name = args.name or (MAZE_NAME_DEFAULT if not is_image else MAZE_IMAGE_NAME_DEFAULT)
+        maze_name = args.name or MAZE_NAME_DEFAULT
         print_maze = args.print
         save_also_as_text = args.savetext
         rows = args.rows and int(args.rows) or None
