@@ -2,20 +2,23 @@
 
 __author__ = 'Joan A. Pinol  (japinol)'
 
+import os
+
 from mazesolver.utils.time_it import time_it
 from mazesolver.config.config import (
     LOG_START_APP_MSG,
     LOG_END_APP_MSG,
     MAZE_SOLVER_MAPPING,
     MAZE_SOLVER_DEFAULT,
+    FILE_INPUT_PATH,
+    FILE_TXT_EXT,
+    FILE_IMAGE_EXT,
     )
 from mazesolver.config.config import log
 from mazesolver.controller.controller import MazeController
 
 
-def mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text):
-    log.info(LOG_START_APP_MSG)
-    controller = MazeController()
+def _maze(controller, maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text):
     maze = time_it(controller.create_maze, name=maze_name, load_maze=load_maze, is_image=is_image,
                    rows=rows, columns=columns)
     print_maze and print(maze)
@@ -29,4 +32,25 @@ def mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image, sav
         if not maze.is_path_marked:
             maze.mark_path(path)
         print(maze)
+
+
+def mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text, process_folder):
+    log.info(LOG_START_APP_MSG)
+    controller = MazeController()
+
+    if process_folder:
+        file_names = [(file[:-4], (file.endswith(FILE_IMAGE_EXT) and True or False))
+                      for file in os.listdir(FILE_INPUT_PATH)
+                      if file.endswith(FILE_TXT_EXT) or file.endswith(FILE_IMAGE_EXT)]
+        log.info("Processing all mazes from input directory")
+        mazes_total = len(file_names)
+        for i, (file_name, is_image_) in enumerate(file_names, start=1):
+            log.info('-' * 15)
+            log.info(f"Processing maze {i:3} of {mazes_total:3}")
+            _maze(controller, file_name, load_maze, rows, columns, print_maze, solver, is_image_, save_also_as_text)
+        log.info('-' * 15)
+        log.info(LOG_END_APP_MSG)
+        return
+
+    _maze(controller, maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text)
     log.info(LOG_END_APP_MSG)

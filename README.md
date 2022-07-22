@@ -22,7 +22,7 @@
 
 ## Usage
 
-	mazesolver [-h] [-c] [-i] [-n NAME] [-nr ROWS] [-nc COLUMNS] [-p] [-s SOLVER] [-t]
+	 mazesolver [-h] [-c] [-i] [-n NAME] [-nr ROWS] [-nc COLUMNS] [-p] [-pd] [-s SOLVER] [-st] [-t]
 
 	optional arguments:
 	  -h, --help            show this help message and exit
@@ -38,6 +38,8 @@
                             All graphic mazes must have this extension: .png
       -p,           --print
 	                        print the maze created or load and the maze solution to the console.
+      -pd,           --processinputdir
+	                        solve all mazes from the input directory.
       -nr,          --rows
 	                        the number of rows. Must be between 4 and 2000.
       -nc,          --columns
@@ -58,6 +60,7 @@
 	image 	            False
 	name 	            maze_01
 	print 	            False
+	processinputdir     False
 	rows                32
 	savetext 	        False
 	solver 	            bfs

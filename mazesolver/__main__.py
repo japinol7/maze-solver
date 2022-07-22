@@ -33,6 +33,8 @@ def main():
                         help=f"the number of columns. Must be between {MAZE_ROWS_COLS_MIN} and {MAZE_ROWS_COLS_MAX}.")
     parser.add_argument('-p', '--print', default=False, action='store_true',
                         help="print the maze created or load and the maze solution to the console.")
+    parser.add_argument('-pd', '--processinputdir', default=False, action='store_true',
+                        help="solve all mazes from the input directory.")
     parser.add_argument('-s', '--solver', default=None,
                         help=f"solver algorithm. Available solvers: {', '.join(MAZE_SOLVERS)}")
     parser.add_argument('-st', '--savetext', default=False, action='store_true',
@@ -53,6 +55,7 @@ def main():
             rows = rows or MAZE_ROWS_DEFAULT
             columns = columns or MAZE_COLUMNS_DEFAULT
         solver = args.solver
+        process_folder = args.processinputdir
 
         input_validator = InputValidator(maze_name, load_maze, rows, columns, solver, is_image)
         validate_input_errors = input_validator.validate_input()
@@ -61,7 +64,7 @@ def main():
                 log.error(input_error)
             return
 
-        mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text)
+        mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text, process_folder)
     except Exception as e:
         if args.debugtraces:
             traceback.print_tb(e.__traceback__)
