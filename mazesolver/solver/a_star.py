@@ -6,7 +6,7 @@ from mazesolver.model.node import Node
 
 
 def calc_a_star(start_location, check_goal, calc_destination_locations, calc_distance):
-    """Implements depth-first search algorithm for traversing a graph or tree data structure."""
+    """Implements astar search algorithm for traversing a graph or tree data structure."""
     next_node = PriorityQueue()
     next_node.push(Node(start_location, None, 0, calc_distance(start_location)))
     explored = {start_location: 0}
