@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='mazesolver',
     author='Joan A. Pinol  (japinol)',
-    version='0.0.4',
+    version='0.0.5',
     license='MIT',
     description="Creates and solves mazes.",
     long_description="Creates and solves mazes of NxN cells with a start and a goal.",
