@@ -13,7 +13,7 @@
     Text mazes must have the following extension: .txt
     Image mazes must have the following extension: .png
 
-	version: 0.0.4
+	version: 0.0.5
 	author: Joan A. Pinol
 	author_nickname: japinol
 	author_gitHub: japinol7
