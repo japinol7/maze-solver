@@ -9,7 +9,7 @@ setup(
     long_description="Creates and solves mazes of NxN cells with a start and a goal.",
     url='https://github.com/japinol7/maze-solver',
     packages=['mazesolver'],
-    python_requires='>=3.9',
+    python_requires='>=3.11',
     install_requires=['Pillow'],
     entry_points={
         'console_scripts': [
