@@ -20,7 +20,7 @@ from mazesolver.controller.controller import MazeController
 
 
 def _maze(controller, maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text):
-    time_start = time.time()
+    time_start = time.perf_counter()
     maze = time_it(controller.create_maze, name=maze_name, load_maze=load_maze, is_image=is_image,
                    rows=rows, columns=columns)
     print_maze and print(maze)
@@ -34,7 +34,7 @@ def _maze(controller, maze_name, load_maze, rows, columns, print_maze, solver, i
         if not maze.is_path_marked:
             maze.mark_path(path)
         print(maze)
-    log.info(f'Total time processing maze: {time.time() - time_start:.{8}f} s')
+    log.info(f'Total time processing maze: {time.perf_counter() - time_start:.{8}f} s')
 
 
 def mazes(maze_name, load_maze, rows, columns, print_maze, solver, is_image, save_also_as_text, process_folder):
