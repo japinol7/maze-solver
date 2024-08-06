@@ -13,44 +13,44 @@
     Text mazes must have the following extension: .txt
     Image mazes must have the following extension: .png
 
-	version: 0.0.5
+	version: 0.0.6
 	author: Joan A. Pinol
 	author_nickname: japinol
 	author_gitHub: japinol7
 	author_twitter: @japinol
-	Python requires: 3.11 or greater.
+	Python requires: 3.12 or greater.
 
 
 ## Usage
 
-	 mazesolver [-h] [-c] [-i] [-n NAME] [-nr ROWS] [-nc COLUMNS] [-p] [-pd] [-s SOLVER] [-st] [-t]
+    mazesolver [-h] [-c] [-i] [-n NAME] [-nr ROWS] [-nc COLUMNS] [-p] [-pd] [-s SOLVER] [-st] [-t]
 
-	optional arguments:
-	  -h, --help            show this help message and exit
-      -c,           --create
-	                        create a new maze instead of loading one.
-      -i,           --image
-	                        load and save a graphic maze instead of a text one.
-      -n,           --name
-	                        the maze's name (without extension). Ex: maze_01 
-                            This name plus and extension will be the file to load or to create.
-                            All files will be loaded from the input folder and saved into the output folder
-                            All text mazes must have this extension: .txt
-                            All graphic mazes must have this extension: .png
-      -p,           --print
-	                        print the maze created or load and the maze solution to the console.
-      -pd,           --processinputdir
-	                        solve all mazes from the input directory.
-      -nr,          --rows
-	                        the number of rows. Must be between 4 and 2000.
-      -nc,          --columns
-	                        the number of columns. Must be between 4 and 2000.
-      -s,           --solver
-	                        solver algorithm. Available solvers: astar, bfs, dfs
-      -st,          --savetext
-	                        save maze as text in addition to save it as image even if asked for an image maze
-	  -t,           --debugtraces
-	                        show debug back traces information when something goes wrong
+    optional arguments:
+    -h, --help            show this help message and exit
+    -c,           --create
+	                      create a new maze instead of loading one.
+    -i,           --image
+	                      load and save a graphic maze instead of a text one.
+    -n,           --name
+	                      the maze's name (without extension). Ex: maze_01 
+                          This name plus and extension will be the file to load or to create.
+                          All files will be loaded from the input folder and saved into the output folder
+                          All text mazes must have this extension: .txt
+                          All graphic mazes must have this extension: .png
+    -p,           --print
+	                      print the maze created or load and the maze solution to the console.
+    -pd,           --processinputdir
+	                      solve all mazes from the input directory.
+    -nr,          --rows
+	                      the number of rows. Must be between 4 and 2000.
+    -nc,          --columns
+	                      the number of columns. Must be between 4 and 2000.
+    -s,           --solver
+	                      solver algorithm. Available solvers: astar, bfs, dfs
+    -st,          --savetext
+	                      save maze as text in addition to save it as image even if asked for an image maze
+    -t,           --debugtraces
+	                      show debug back traces information when something goes wrong
 
 
 **Default optional arguments**
