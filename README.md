@@ -13,12 +13,12 @@
     Text mazes must have the following extension: .txt
     Image mazes must have the following extension: .png
 
-	version: 0.0.6
+	version: 0.0.7
 	author: Joan A. Pinol
 	author_nickname: japinol
 	author_gitHub: japinol7
 	author_twitter: @japinol
-	Python requires: 3.12 or greater.
+	Python requires: 3.13 or greater.
 
 
 ## Usage
