@@ -1,0 +1,9 @@
+[project]
+name = "maze-solver"
+version = "0.0.7"
+description = "maze-solver"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pillow>=11.1.0,<12",
+]
